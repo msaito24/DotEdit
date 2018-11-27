@@ -35,9 +35,13 @@ public class DotCanvasUI : MonoBehaviour
                 DotCellUI cell = Instantiate<DotCellUI>(cellTemplate, cellParent);
                 cell.point = point;
                 cell.onDraw = DrawDot;
+                cell.gameObject.SetActive(true);
                 cells[index] = cell;
             }
         }
+
+        // テンプレートを隠す
+        cellTemplate.gameObject.SetActive(false);
     }
 
     public void ChangeCurrentColor(Color color)
