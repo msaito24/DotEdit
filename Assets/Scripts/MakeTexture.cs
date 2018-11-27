@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MakeTexture : MonoBehaviour {
-    public Image target;
+    public int Max = 32;
 
     // Use this for initialization
     void Start () {
@@ -19,10 +19,10 @@ public class MakeTexture : MonoBehaviour {
 		
 	}
     public void SavePng(Color[] cols) {
-        Texture2D m_texture = new Texture2D(64, 64, TextureFormat.ARGB32, false);
+        Texture2D m_texture = new Texture2D(Max, Max, TextureFormat.ARGB32, false);
         m_texture.name = "";
-        for (int index = 0; index < 4096; index++) {
-            Point point = DotEditUtils.GetPointFromIndex(index, 64);
+        for (int index = 0; index < Max * Max; index++) {
+            Point point = DotEditUtils.GetPointFromIndex(index, Max);
             m_texture.SetPixel(point.x, point.y, cols[index]);
         }
         m_texture.Apply();
@@ -33,7 +33,7 @@ public class MakeTexture : MonoBehaviour {
         // ファイルダイアログの表示.
         string filePath = EditorUtility.OpenFilePanel("Load Png", "", "png");
 
-        Texture2D tex = ReadTexture(filePath, 64, 64);
+        Texture2D tex = ReadTexture(filePath, Max, Max);
         return tex;
     }
 
@@ -68,41 +68,5 @@ public class MakeTexture : MonoBehaviour {
             // pngファイル保存.
             File.WriteAllBytes(filePath, pngData);
         }
-    }
-
-    void display(Texture2D tex) {
-        Sprite sprite = Sprite.Create(
-          texture: tex,
-          rect: new Rect(0, 0, tex.width, tex.height),
-          pivot: new Vector2(0.5f, 0.5f)
-        );
-        target.sprite = sprite;
-    }
-
-    /**
-    public void SavePng(Color[] cols) {
-        Texture2D m_texture = new Texture2D(64, 64, TextureFormat.ARGB32, false);
-        m_texture.name = "test";
-        for (int index = 0; index < 4096; index++) {
-            Point point = DotEditUtils.GetPointFromIndex(index, 64);
-            m_texture.SetPixel(point.x, point.y, cols[index]);
-        }
-        m_texture.Apply();
-        SavePngTest(m_texture);
-        display(m_texture);
-    }**/
-
-    void Make() {
-        Texture2D m_texture = new Texture2D(64, 64, TextureFormat.ARGB32, false);
-        m_texture.name = "test";
-        Color[] cols = new Color[4096];
-        for (int i = 0; i < 4096; i++) cols[i] = Color.green;
-        for (int i = 0; i < 10; i++) cols[i] = Color.red;
-
-        // m_texture.SetPixels(0, 0, 64, 64, cols);
-        // m_texture.Apply();
-        //SavePngTest(m_texture);
-        SavePng(cols);
-        //display(m_texture);
     }
 }
