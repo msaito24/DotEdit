@@ -24,6 +24,11 @@ public class DotCanvasUI : MonoBehaviour
 
     public void Awake()
     {
+        Setup();
+        Initialize();
+    }
+
+    public void Setup() {
         cells = new DotCellUI[sizeX * sizeY];
         colors = new Color[sizeX * sizeY];
 
@@ -47,6 +52,18 @@ public class DotCanvasUI : MonoBehaviour
 
         // テンプレートを隠す
         cellTemplate.gameObject.SetActive(false);
+    }
+
+    public void Initialize()
+    {
+        for(int i = 0; i < sizeX; i++)
+        {
+            for(int j = 0; j < sizeY; j++)
+            {
+                Point point = new Point(i,j);
+                Erase(point);
+            }
+        }
     }
 
     public void ChangeCurrentColor(Color color)
