@@ -4,6 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Windows.Forms; //OpenFileDialog用に使う
 
 public class MakeTexture : MonoBehaviour {
     public int Max = 32;
@@ -31,10 +32,11 @@ public class MakeTexture : MonoBehaviour {
 
     public Texture2D LoadPng() {
         // ファイルダイアログの表示.
-        string filePath = EditorUtility.OpenFilePanel("Load Png", "", "png");
-
-        Texture2D tex = ReadTexture(filePath, Max, Max);
-        return tex;
+        //string filePath = EditorUtility.OpenFilePanel("Load Png", "", "png");
+        //
+        //Texture2D tex = ReadTexture(filePath, Max, Max);
+        //return tex;
+        return null;
     }
 
     byte[] ReadPngFile(string path) {
@@ -62,8 +64,21 @@ public class MakeTexture : MonoBehaviour {
         byte[] pngData = tex.EncodeToPNG();   // pngのバイト情報を取得.
 
         // ファイルダイアログの表示.
-        string filePath = EditorUtility.SaveFilePanel("Save Texture", "", tex.name + ".png", "png");
+        //string filePath = EditorUtility.SaveFilePanel("Save Texture", "", tex.name + ".png", "png");
 
+        SaveFileDialog open_file_dialog = new SaveFileDialog();
+
+        //pngファイルを開くことを指定する
+        open_file_dialog.Filter = "pngファイル|*.png";
+
+        //ファイルが実在しない場合は警告を出す(true)、警告を出さない(false)
+        open_file_dialog.CheckFileExists = false;
+
+        //ダイアログを開く
+        open_file_dialog.ShowDialog();
+
+        //取得したファイル名をInputFieldに代入する
+        string filePath = open_file_dialog.FileName;
         if (filePath.Length > 0) {
             // pngファイル保存.
             File.WriteAllBytes(filePath, pngData);
