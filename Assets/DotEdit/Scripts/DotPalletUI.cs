@@ -23,7 +23,7 @@ public class DotPalletUI : MonoBehaviour
             colorUIs[i] = Instantiate<PalletColorUI>(template,parent);
             colorUIs[i].gameObject.SetActive(true);
 			colorUIs[i].onSelected = OnSelected;
-			colorUIs[i].color = colors[i];
+			colorUIs[i].SetColor(colors[i]);
         }
         template.gameObject.SetActive(false);
     }
