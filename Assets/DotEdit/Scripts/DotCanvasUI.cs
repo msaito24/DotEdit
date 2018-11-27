@@ -22,6 +22,9 @@ public class DotCanvasUI : MonoBehaviour
         cells = new DotCellUI[sizeX * sizeY];
         colors = new Color[sizeX * sizeY];
 
+        currentColor = Color.black;
+        currentToolType = ToolType.Pencil;
+
         for(int i = 0; i < sizeX; i++)
         {
             for(int j = 0; j < sizeY; j++)
