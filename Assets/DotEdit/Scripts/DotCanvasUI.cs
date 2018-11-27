@@ -10,12 +10,13 @@ public class DotCanvasUI : MonoBehaviour
     public Transform cellParent;
 
     [Header("デバッグ")]
-    public int sizeX;
-    public int sizeY;
     public DotCellUI[] cells;
     public Color[] colors;
     public Color currentColor;
     public ToolType currentToolType;
+
+    int sizeX = 32;
+    int sizeY = 32;
 
     public void Awake()
     {
