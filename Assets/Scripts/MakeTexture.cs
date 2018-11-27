@@ -66,19 +66,21 @@ public class MakeTexture : MonoBehaviour {
         // ファイルダイアログの表示.
         //string filePath = EditorUtility.SaveFilePanel("Save Texture", "", tex.name + ".png", "png");
 
-        SaveFileDialog open_file_dialog = new SaveFileDialog();
-
-        //pngファイルを開くことを指定する
-        open_file_dialog.Filter = "pngファイル|*.png";
-
-        //ファイルが実在しない場合は警告を出す(true)、警告を出さない(false)
-        open_file_dialog.CheckFileExists = false;
-
+        SaveFileDialog sfd = new SaveFileDialog();
+        //はじめに表示されるフォルダを指定する
+        sfd.InitialDirectory = @"C:\";
+        //[ファイルの種類]に表示される選択肢を指定する
+        //指定しない（空の文字列）の時は、現在のディレクトリが表示される
+        sfd.Filter = "pngファイル|*.png";
+        //タイトルを設定する
+        sfd.Title = "保存先のファイルを選択してください";
+        //ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
+        sfd.RestoreDirectory = true;
         //ダイアログを開く
-        open_file_dialog.ShowDialog();
+        sfd.ShowDialog();
 
         //取得したファイル名をInputFieldに代入する
-        string filePath = open_file_dialog.FileName;
+        string filePath = sfd.FileName;
         if (filePath.Length > 0) {
             // pngファイル保存.
             File.WriteAllBytes(filePath, pngData);
