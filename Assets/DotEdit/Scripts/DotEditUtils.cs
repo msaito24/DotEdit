@@ -6,13 +6,14 @@ public static class DotEditUtils
 {
     public static Point GetPointFromIndex(int index, int width)
     {
-        return new Point(0,0);
+        int x = index % width;
+        int y = index / width;
+        return new Point(x,y);
     }
 
-    public static int GetIndexFromPoint(Point point)
+    public static int GetIndexFromPoint(Point point, int width)
     {
-		// TODO impl
-        return -1; 
+        return point.y * width + point.x; 
     }
 
 }
