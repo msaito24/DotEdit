@@ -18,13 +18,13 @@ public class DotCellUI : MonoBehaviour {
 		}
 	}
 
-    void OnMouseEnter() {
+    public void OnMouseEnter() {
         if (Input.GetMouseButton(0)) {
             onDraw(point);
         }
     }
 
-    void OnMouseDown() {
+    public void OnMouseDown() {
         onDraw(point);
     }
 }
