@@ -21,25 +21,17 @@ public class MakeTexture : MonoBehaviour {
     public void SavePng(Color[] cols) {
         Texture2D m_texture = new Texture2D(64, 64, TextureFormat.ARGB32, false);
         m_texture.name = "test";
-
-        for (int y = 0; y < m_texture.height; y++) {
-            for (int x = 0; x < m_texture.width; x++) {
-                m_texture.SetPixel(x, y, cols[x]);
-            }
-        }
         int piX = 0;
         int piY = 0;
         for (int index = 0; index < 4096; index++) {
-            //piX = index
-
-
-            //m_texture.SetPixel(x, y, cols[index]);
+            piX = index;
+            if (index >= 64) {
+                piX = piX % 64;
+            }
+            piY =index/64;
+            //Debug.Log(index + ":" + piX + ":" + piY + cols[index].ToString());
+            m_texture.SetPixel(piX, piY, cols[index]);
         }
-
-
-
-        for (int i = 0; i < 4096; i++) cols[i] = Color.green;
-        m_texture.SetPixels(0, 0, 64, 64, cols);
         m_texture.Apply();
         SavePngTest(m_texture);
         display(m_texture);
@@ -50,10 +42,13 @@ public class MakeTexture : MonoBehaviour {
         m_texture.name = "test";
         Color[] cols = new Color[4096];
         for (int i = 0; i < 4096; i++) cols[i] = Color.green;
-        m_texture.SetPixels(0, 0, 64, 64, cols);
-        m_texture.Apply();
-        SavePngTest(m_texture);
-        display(m_texture);
+        for (int i = 0; i < 10; i++) cols[i] = Color.red;
+
+        // m_texture.SetPixels(0, 0, 64, 64, cols);
+        // m_texture.Apply();
+        //SavePngTest(m_texture);
+        SavePng(cols);
+        //display(m_texture);
     }
 
     void SavePngTest(Texture2D tex) {

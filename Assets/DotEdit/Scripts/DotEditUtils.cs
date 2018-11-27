@@ -4,9 +4,8 @@ using UnityEngine;
 
 public static class DotEditUtils
 {
-    public static Point GetPointFromIndex(int index)
+    public static Point GetPointFromIndex(int index, int width)
     {
-		// TODO impl
         return new Point(0,0);
     }
 
