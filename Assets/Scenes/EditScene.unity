@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 873653986}
   - component: {fileID: 873653985}
   - component: {fileID: 873653984}
+  - component: {fileID: 873653987}
   m_Layer: 5
   m_Name: PenButton
   m_TagString: Untagged
@@ -712,7 +713,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873653985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 873653987}
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &873653985
@@ -748,6 +760,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873653982}
+--- !u!114 &873653987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873653982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba7638e4eb846e5b57a73efe4b9c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotCanvasUI: {fileID: 983254314}
 --- !u!1 &964502800
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +964,7 @@ GameObject:
   - component: {fileID: 1040399750}
   - component: {fileID: 1040399749}
   - component: {fileID: 1040399748}
+  - component: {fileID: 1040399751}
   m_Layer: 5
   m_Name: EraserButton
   m_TagString: Untagged
@@ -1004,7 +1029,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1040399749}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1040399751}
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1040399749
@@ -1040,6 +1076,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040399746}
+--- !u!114 &1040399751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040399746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef89d3dd56fa843b6b8da485b4186853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotCanvasUI: {fileID: 983254314}
 --- !u!1 &1066152838
 GameObject:
   m_ObjectHideFlags: 0
