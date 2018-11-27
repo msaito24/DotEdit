@@ -7,4 +7,5 @@ public enum ToolType
 	None = 0,
     Pencil = 1,
     Eraser = 2,
+    Fill = 3,
 }
