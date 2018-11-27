@@ -23,7 +23,7 @@ public class MakeTexture : MonoBehaviour {
         m_texture.name = "";
         for (int index = 0; index < Max * Max; index++) {
             Point point = DotEditUtils.GetPointFromIndex(index, Max);
-            m_texture.SetPixel(point.x, point.y, cols[index]);
+            m_texture.SetPixel(point.x, (Max - point.y), cols[index]);
         }
         m_texture.Apply();
         SavePngSub(m_texture);
