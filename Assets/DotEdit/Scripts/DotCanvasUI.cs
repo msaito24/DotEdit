@@ -15,6 +15,7 @@ public class DotCanvasUI : MonoBehaviour
     public DotCellUI[] cells;
     public Color[] colors;
     public Color currentColor;
+    public ToolType currentToolType;
 
     public void Awake()
     {
@@ -48,12 +49,23 @@ public class DotCanvasUI : MonoBehaviour
 
         if(0 <= index && index < cells.Length)
         {
-            cells[index].image.color = color;
-            colors[index] = color;
+            if (currentToolType == ToolType.Pencil) {
+                cells[index].image.color = color;
+                colors[index] = color;
+            }
+            else if (currentToolType == ToolType.Eraser) {
+                color = new Color(0f, 0f, 0f, 0f);
+                cells[index].image.color = color;
+                colors[index] = color;
+            }
         }
         else
         {
             Debug.LogWarningFormat("不正な index: {0}",index);
         }
+    }
+
+    public void ChangeCurrentTool(ToolType type) {
+        currentToolType = type;
     }
 }

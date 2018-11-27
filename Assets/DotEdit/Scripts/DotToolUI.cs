@@ -18,6 +18,6 @@ public class DotToolUI : MonoBehaviour
     public virtual void OnSelected()
     {
         // TODO impl
-        // dotCanvasUI.ChangeCurrentTool(toolType);
+        dotCanvasUI.ChangeCurrentTool(toolType);
     }
 }
