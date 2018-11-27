@@ -21,6 +21,7 @@ public class DotCanvasUI : MonoBehaviour
     public void Awake()
     {
         cells = new DotCellUI[sizeX * sizeY];
+        colors = new Color[sizeX * sizeY];
 
         for(int i = 0; i < sizeX; i++)
         {
