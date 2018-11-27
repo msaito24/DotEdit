@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PencilToolUI : DotToolUI {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class PencilToolUI : DotToolUI
+{
+    public override ToolType toolType
+    {
+        get
+        {
+            return ToolType.Pencil;
+        }
+    }
 }
