@@ -884,7 +884,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 873653982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd25a1b0fe9a4b3eb25fb560be3c18d, type: 3}
+  m_Script: {fileID: 11500000, guid: a6ba7638e4eb846e5b57a73efe4b9c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dotCanvasUI: {fileID: 983254314}
