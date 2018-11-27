@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DotCanvasUI : MonoBehaviour
 {
+    public DotCellUI cellTemplate;
     public Image[] images;
 
     public int sizeX;
@@ -12,6 +13,9 @@ public class DotCanvasUI : MonoBehaviour
     public Color[] colors;
 
     public Color currentColor;
+
+    public void Awake() {
+    }
 
     // キャンバスの一部がクリックされたときに呼び出される
     public void OnClicked(Vector2 position)
