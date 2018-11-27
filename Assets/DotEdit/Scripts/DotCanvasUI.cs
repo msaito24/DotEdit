@@ -90,7 +90,9 @@ public class DotCanvasUI : MonoBehaviour
             }
             else if(currentToolType == ToolType.Fill)
             {
+                startColor = colors[index];
                 searched = new HashSet<Point>();
+                total = 0;
                 Fill(point);
             }
         }
@@ -118,6 +120,7 @@ public class DotCanvasUI : MonoBehaviour
 
     HashSet<Point> searched;
     int total = 0;
+    Color startColor;
 
     public void Fill(Point point)
     {
@@ -126,19 +129,26 @@ public class DotCanvasUI : MonoBehaviour
             return;
         }
 
-        if (total > 10) {
+        if (total > 10000) {
             return;
         }
-        Debug.LogFormat("({0}, {1})", point.x, point.y);
+        // Debug.LogFormat("({0}, {1})", point.x, point.y);
 
         searched.Add(point);
         int index = DotEditUtils.GetIndexFromPoint(point,sizeX);
 
         Color color = currentColor;
-        if(0 <= index && index < cells.Length)
+        if(0 <= point.x && point.x < sizeX && 0 <= point.y && point.y < sizeY)
         {
+            if (colors[index] != startColor) {
+                return;
+            }
+
             cells[index].image.color = color;
             colors[index] = color;
+        }
+        else {
+            return;
         }
 
         Point right = new Point(point.x + 1, point.y);
