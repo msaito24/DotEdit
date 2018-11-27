@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PencilToolUI : MonoBehaviour {
+public class PencilToolUI : DotToolUI {
 
 	// Use this for initialization
 	void Start () {

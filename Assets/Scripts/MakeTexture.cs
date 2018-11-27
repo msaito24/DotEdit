@@ -27,9 +27,13 @@ public class MakeTexture : MonoBehaviour {
                 m_texture.SetPixel(x, y, cols[x]);
             }
         }
+        int piX = 0;
+        int piY = 0;
+        for (int index = 0; index < 4096; index++) {
+            //piX = index
 
-        for (int idx = 0; idx < 4096; idx++) {
-            //m_texture.SetPixel(x, y, cols[idx]);
+
+            //m_texture.SetPixel(x, y, cols[index]);
         }
 
 

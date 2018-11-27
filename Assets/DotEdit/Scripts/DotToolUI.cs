@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DotToolUI : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class DotToolUI : MonoBehaviour
+{
+    public virtual void OnSelected()
+    {
+        // do nothing.
+    }
 }
