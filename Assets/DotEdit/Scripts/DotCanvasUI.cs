@@ -5,27 +5,34 @@ using UnityEngine.UI;
 
 public class DotCanvasUI : MonoBehaviour
 {
+    [Header("参照")]
     public DotCellUI cellTemplate;
+    public Transform cellParent;
+
+    [Header("デバッグ")]
     public Image[] images;
 
     public int sizeX;
     public int sizeY;
+    public DotCellUI[] cells;
     public Color[] colors;
-
     public Color currentColor;
 
-    public void Awake() {
-    }
-
-    // キャンバスの一部がクリックされたときに呼び出される
-    public void OnClicked(Vector2 position)
+    public void Awake()
     {
-        // クリックされた位置が不正な位置でないなら正しく currentColor 色を描画する.
-        Point point;
+        cells = new DotCellUI[sizeX * sizeY];
 
-        if(GetDrawPoint(position,null,out point))
+        for(int i = 0; i < sizeX; i++)
         {
-            DrawDot(point,currentColor);
+            for(int j = 0; j < sizeY; j++)
+            {
+                Point point = new Point(i,j);
+                int index = DotEditUtils.GetIndexFromPoint(point, sizeX);
+                DotCellUI cell = Instantiate<DotCellUI>(cellTemplate, cellParent);
+                cell.point = point;
+                cell.onDraw = DrawDot;
+                cells[index] = cell;
+            }
         }
     }
 
@@ -34,8 +41,10 @@ public class DotCanvasUI : MonoBehaviour
         this.currentColor = color;
     }
 
-    public void DrawDot(Point point,Color color)
+    public void DrawDot(Point point)
     {
+        Color color = currentColor;
+
         int index = DotEditUtils.GetIndexFromPoint(point,sizeX);
 
         if(0 <= index && index < images.Length)
@@ -46,11 +55,5 @@ public class DotCanvasUI : MonoBehaviour
         {
             Debug.LogWarningFormat("不正な index: {0}",index);
         }
-    }
-
-    public bool GetDrawPoint(Vector2 position,Camera camera,out Point point)
-    {
-        point = new Point(0,0);
-        return false;
     }
 }
