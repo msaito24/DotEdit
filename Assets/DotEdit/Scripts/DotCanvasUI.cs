@@ -10,8 +10,6 @@ public class DotCanvasUI : MonoBehaviour
     public Transform cellParent;
 
     [Header("デバッグ")]
-    public Image[] images;
-
     public int sizeX;
     public int sizeY;
     public DotCellUI[] cells;
@@ -48,9 +46,10 @@ public class DotCanvasUI : MonoBehaviour
 
         int index = DotEditUtils.GetIndexFromPoint(point,sizeX);
 
-        if(0 <= index && index < images.Length)
+        if(0 <= index && index < cells.Length)
         {
-            images[index].color = color;
+            cells[index].image.color = color;
+            colors[index] = color;
         }
         else
         {
