@@ -1065,6 +1065,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellTemplate: {fileID: 718796918}
   cellParent: {fileID: 769685195}
+  alpha1: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  alpha2: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   cells: []
   colors: []
   currentColor: {r: 0, g: 0, b: 0, a: 0}
